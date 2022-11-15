@@ -5,7 +5,7 @@ export const addArtist = async (data) => {
 	const config = {
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded',
-			// jwt: localStorage.getItem('authToken'),
+			'x-access-token': localStorage.getItem('accessToken'),
 		},
 	};
 
@@ -15,6 +15,16 @@ export const addArtist = async (data) => {
 
 
 export const getArtists = async () => {
-	const response = await axios.get(`${backendUrl}/artists`);
+	const response = await axios.get(`${backendUrl}artists`);
 	return response.data;
+};
+
+export const login = async (data) => {
+	const config = {
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+		},
+	};
+
+	return await axios.post(`${backendUrl}auth/login`, data, config);
 };

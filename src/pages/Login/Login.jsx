@@ -8,19 +8,30 @@ import classes from './Login.module.css'
 import ColorButton from '../../components/UI/ColorButton/ColorButton'
 import { ErrorMessage, Form, Formik } from 'formik';
 import { LoginSchema } from './validation';
+import { login } from '../../utils/api/api';
 
 export default function Login() {
 	let navigate = useNavigate();
 	const [formData, setFormData] = useState('');
+	const [error, setError] = useState(null);
 
 	const initialValues = {
-		email: '',
-		password: '',
+		email: 'sparkwave@gmail.com',
+		password: 'ObeYkFIlS6',
 	};
 
 	const handleLogin = async () => {
 		console.log('submit: s', formData.values)
-		// await loginUser(formData.values);
+		try {
+			const response = await login(formData.values);
+			localStorage.setItem('accessToken', response.data.accessToken);
+			navigate('/admin');
+		} catch (e) {
+			localStorage.removeItem('jwtToken');
+			navigate('auth/login');
+			setError('Error');
+		}
+
 	};
 
 	React.useEffect(() => {
@@ -67,7 +78,7 @@ export default function Login() {
 											placeholder="Email"
 											onChange={handleChange}
 											onBlur={handleBlur}
-											value={values.description}
+											value={values.email}
 										/>
 										<div className={classes.error}>
 											<ErrorMessage name="email" />

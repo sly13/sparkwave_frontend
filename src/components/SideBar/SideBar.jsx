@@ -3,23 +3,29 @@ import classes from './SideBar.module.css';
 import { ReactComponent as Logo } from '../../img/sidebar-icon.svg';
 import SideBarLink from '../SideBarLink/SideBarLink';
 import BurgerButton from '../UI/BurgerButton/BurgerButton';
+import MyButton from '../UI/button/MyButton';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function SideBar() {
-  const [MenuBurgerActive, setMenuBurgerActive] = useState(false)
-
+  let navigate = useNavigate();
+  const [menuBurgerActive, setMenuBurgerActive] = useState(false)
+  const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    navigate('auth/login');
+  }
   return (
     <div className={classes.body}>
-      <div className={MenuBurgerActive ? [classes.container, classes.active].join(' ') : [classes.container]}>
+      <div className={menuBurgerActive ? [classes.container, classes.active].join(' ') : [classes.container]}>
         <div className={classes.firstBlock}>
           <div className={classes.row}>
             <Logo />
-            <BurgerButton pressed={MenuBurgerActive} clickHandler={() => {
-              setMenuBurgerActive(!MenuBurgerActive)
+            <BurgerButton pressed={menuBurgerActive} clickHandler={() => {
+              setMenuBurgerActive(!menuBurgerActive)
             }} />
           </div>
 
-          <div className={MenuBurgerActive ? [classes.links, classes.active].join(' ') : [classes.links]}>
+          <div className={menuBurgerActive ? [classes.links, classes.active].join(' ') : [classes.links]}>
             <SideBarLink href='/find-artists' click={() => { setMenuBurgerActive(false) }}>
               <svg className={classes.svg} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.86 8.08997C19.86 8.50997 19.83 8.91997 19.78 9.30997C19.32 9.10997 18.82 8.99997 18.29 8.99997C17.07 8.99997 15.99 9.58996 15.32 10.49C14.64 9.58996 13.56 8.99997 12.34 8.99997C10.29 8.99997 8.63 10.67 8.63 12.74C8.63 15.42 10.05 17.47 11.63 18.86C11.58 18.89 11.53 18.9 11.48 18.92C11.18 19.03 10.68 19.03 10.38 18.92C7.79 18.03 2 14.35 2 8.08997C2 5.32997 4.21999 3.09998 6.95999 3.09998C8.58999 3.09998 10.03 3.87997 10.93 5.08997C11.84 3.87997 13.28 3.09998 14.9 3.09998C17.64 3.09998 19.86 5.32997 19.86 8.08997Z" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -65,7 +71,7 @@ export default function SideBar() {
               </svg>
               Artist Detail
             </SideBarLink>
-            <SideBarLink href="/auth/login" click={() => { setMenuBurgerActive(false) }}>
+            {!window.localStorage.getItem('accessToken') && <SideBarLink href="/auth/login" click={() => { setMenuBurgerActive(false) }}>
               <svg className={classes.svg} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 10H7C9 10 10 9 10 7V5C10 3 9 2 7 2H5C3 2 2 3 2 5V7C2 9 3 10 5 10Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M17 10H19C21 10 22 9 22 7V5C22 3 21 2 19 2H17C15 2 14 3 14 5V7C14 9 15 10 17 10Z" fill="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -73,22 +79,25 @@ export default function SideBar() {
                 <path d="M5 22H7C9 22 10 21 10 19V17C10 15 9 14 7 14H5C3 14 2 15 2 17V19C2 21 3 22 5 22Z" fill="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               Login
-            </SideBarLink>
-            <SideBarLink href="/admin" click={() => { setMenuBurgerActive(false) }}>
-              <svg className={classes.svg} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 10H7C9 10 10 9 10 7V5C10 3 9 2 7 2H5C3 2 2 3 2 5V7C2 9 3 10 5 10Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M17 10H19C21 10 22 9 22 7V5C22 3 21 2 19 2H17C15 2 14 3 14 5V7C14 9 15 10 17 10Z" fill="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M17 22H19C21 22 22 21 22 19V17C22 15 21 14 19 14H17C15 14 14 15 14 17V19C14 21 15 22 17 22Z" fill="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M5 22H7C9 22 10 21 10 19V17C10 15 9 14 7 14H5C3 14 2 15 2 17V19C2 21 3 22 5 22Z" fill="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              Admin
-            </SideBarLink>
+            </SideBarLink>}
 
-
+            {window.localStorage.getItem('accessToken') &&
+              <>
+                <SideBarLink href="/admin" click={() => { setMenuBurgerActive(false) }}>
+                  <svg className={classes.svg} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 10H7C9 10 10 9 10 7V5C10 3 9 2 7 2H5C3 2 2 3 2 5V7C2 9 3 10 5 10Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M17 10H19C21 10 22 9 22 7V5C22 3 21 2 19 2H17C15 2 14 3 14 5V7C14 9 15 10 17 10Z" fill="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M17 22H19C21 22 22 21 22 19V17C22 15 21 14 19 14H17C15 14 14 15 14 17V19C14 21 15 22 17 22Z" fill="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M5 22H7C9 22 10 21 10 19V17C10 15 9 14 7 14H5C3 14 2 15 2 17V19C2 21 3 22 5 22Z" fill="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Admin
+                </SideBarLink>
+                <MyButton onClick={handleLogout}>Logout</MyButton>
+              </>}
           </div>
         </div>
 
-        <div className={MenuBurgerActive ? [classes.secondBlock, classes.active].join(' ') : [classes.secondBlock]}>
+        <div className={menuBurgerActive ? [classes.secondBlock, classes.active].join(' ') : [classes.secondBlock]}>
           <p className={classes.otherText}>other</p>
           <div className={classes.modeSwitchRow}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

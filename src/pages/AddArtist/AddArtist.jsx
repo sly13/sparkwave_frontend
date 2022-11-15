@@ -58,21 +58,7 @@ function AddArtist() {
 						>
 							{({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, setFieldValue }) => (
 								<>
-									<Form onSubmit={handleSubmit} className={classes.form} >
-										<div className={classes.formBlock}>
-											<label htmlFor="" className={classes.label} >Soundcloud</label>
-											<FormInput
-												id="soundcloud"
-												name="soundcloud"
-												placeholder="Soundcloud"
-												onChange={handleChange}
-												onBlur={handleBlur}
-												value={values.soundcloud}
-											/>
-											<div className={classes.error}>
-												<ErrorMessage name="soundcloud" />
-											</div>
-										</div>
+									<Form onSubmit={handleSubmit} className={classes.form}>
 										<div className={classes.formBlock}>
 											<label htmlFor="" className={classes.label} >Name</label>
 											<FormInput
@@ -102,6 +88,21 @@ function AddArtist() {
 												<ErrorMessage name="email" />
 											</div>
 										</div>
+										<div className={classes.formBlock}>
+											<label htmlFor="" className={classes.label} >Soundcloud</label>
+											<FormInput
+												id="soundcloud"
+												name="soundcloud"
+												placeholder="Soundcloud"
+												onChange={handleChange}
+												onBlur={handleBlur}
+												value={values.soundcloud}
+											/>
+											<div className={classes.error}>
+												<ErrorMessage name="soundcloud" />
+											</div>
+										</div>
+
 
 										<div className={classes.formBlock}>
 											<label htmlFor="" className={classes.label} >Twitter</label>
