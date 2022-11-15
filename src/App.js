@@ -10,20 +10,26 @@ import FindArtists from './pages/FindArtists/FindArtists';
 import ArtistDetail from './pages/ArtistDetail/ArtistDetail';
 import AccountInfo from './pages/AccountInfo/AccountInfo';
 import MakeDrop from './pages/MakeDrop/MakeDrop';
+import Login from './pages/Login/Login';
+import Admin from './pages/Admin/Admin.jsx';
+import AddArtist from './pages/AddArtist/AddArtist';
 
 
 function App() {
   return (
     <div className="App">
-        <SideBar></SideBar>
-        
-        <Routes>
-            <Route path='/' element={<MainContent/>}/>
-            <Route path='/find-artists' element={<FindArtists/>}/>
-            <Route path='/artist-detail' element={<ArtistDetail/>}/>
-            <Route path='/info' element={<AccountInfo/>}/>
-            <Route path='/make-drop' element={<MakeDrop/>}/>
-        </Routes>
+      <SideBar></SideBar>
+
+      <Routes>
+        <Route path='/' element={<MainContent />} />
+        <Route path='/find-artists' element={<FindArtists />} />
+        <Route path='/artist-detail' element={<ArtistDetail />} />
+        <Route path='/info' element={<AccountInfo />} />
+        <Route path='/make-drop' element={<MakeDrop />} />
+        <Route path='/auth/login' element={<Login />} />
+        <Route path='/admin' element={<Admin />} />
+        <Route path='/create-artist' element={<AddArtist />} />
+      </Routes>
     </div>
   );
 }
