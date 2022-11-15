@@ -91,6 +91,10 @@
 	flex: 0 1 25%;
 }
 
+.error {
+	color: rgb(199, 44, 44);
+}
+
 @media screen and (max-width: 961px) {
 	.row {
 		flex-direction: column;

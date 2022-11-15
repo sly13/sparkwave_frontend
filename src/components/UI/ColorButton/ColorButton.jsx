@@ -1,15 +1,15 @@
 import React from 'react'
 import MyButton from '../button/MyButton'
 
-export default function ColorButton({children, color, style, textColor}) {
+export default function ColorButton({ children, color, style, textColor, ...props }) {
   return (
-    <MyButton style={{
-        color: textColor ? textColor : '#000',
-        border: 'none',
-        background: `${color}`,
-        ...style
+    <MyButton {...props} style={{
+      color: textColor ? textColor : '#000',
+      border: 'none',
+      background: `${color}`,
+      ...style
     }}>
-        {children}
+      {children}
     </MyButton>
   )
 }
