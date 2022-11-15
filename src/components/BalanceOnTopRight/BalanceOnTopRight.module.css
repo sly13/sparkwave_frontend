@@ -1,0 +1,30 @@
+
+.rightText {
+    color: #FFFFFF;
+    margin-left: 88px;
+}
+.rightTextTop {
+    
+    font-family: 'PP Monument Extended';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.03em;
+}
+.rightTextBottom {
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 1050px) {
+    .rightText {
+        margin-left: 0px;
+    }
+}

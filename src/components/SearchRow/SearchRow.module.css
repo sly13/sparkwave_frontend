@@ -1,0 +1,46 @@
+.row {
+    display: flex;
+    align-items: center;
+    background: #222222;
+    border-radius: 12px;
+    width: 55.42%;
+}
+
+.input {
+    flex: 1 1 100%;
+    background: transparent;
+    border: none;
+    padding: 10px 20px;
+
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.03em;
+
+    color: #FFFFFF;
+
+    opacity: 0.5;
+}
+
+.button {
+    background: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    background: url('../../img/search.svg') center no-repeat;
+    margin-right: 10px;
+}
+.button:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1050px) {
+    .row {
+        width: 100%;        
+        margin-bottom: 20px;
+    }
+}

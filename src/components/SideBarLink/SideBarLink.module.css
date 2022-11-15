@@ -1,0 +1,55 @@
+
+
+.link {
+
+    display: flex;
+    align-items: center;
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    font-feature-settings: 'salt' on;
+    color: #BFBFBF;
+    margin-bottom: 24px;
+    text-decoration: none;
+}
+
+.link:hover{
+    cursor: pointer;
+    color: #0047FF;
+    stroke: #0047FF;
+}
+
+.active{
+    display: flex;
+    align-items: center;
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    font-feature-settings: 'salt' on;
+    color: #BFBFBF;
+    margin-bottom: 24px;
+    text-decoration: none;
+    color: #0047FF;
+    stroke: #0047FF;
+}
+
+.active svg{
+    stroke: #0047FF;
+    fill: #0047FF;
+}
+
+.link:hover svg{
+    stroke: #0047FF;
+    fill: #0047FF;
+}
+
+@media screen and (max-width: 1080px) {
+
+    .link, .active{
+        font-size: 25px;
+    }
+}

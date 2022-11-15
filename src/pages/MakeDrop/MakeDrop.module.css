@@ -1,0 +1,137 @@
+.headerRow {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.row { 
+    display: flex;
+    justify-content: space-between;
+}
+
+.subtitle {
+    font-family: 'PP Monument Extended';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    opacity: 0.3;
+}
+
+.title {
+    font-family: 'PP Monument Extended';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+}
+
+.label {
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    flex: 0 1 60%;
+}
+
+.formBlock {
+    margin-bottom: 40px;
+}
+
+.formComment {
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.previewComment {
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.03em;
+
+    color: rgba(191, 191, 191, 0.47);
+
+}
+
+.previewInfo {
+    margin-bottom: 11px;
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+}
+
+.column {
+    flex: 0 1 25%;
+}
+
+@media screen and (max-width: 961px) {
+    .row { 
+        flex-direction: column;
+    }
+
+    .headerRow {
+        margin-bottom: 10px;
+    }
+
+    .title {
+        margin-bottom: 20px;
+    }
+
+    .form {
+        order: 2;
+    }
+
+    .column {
+        order: 1;
+    }
+
+    .previewComment {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .headerRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .headerRow div{
+        order: 1;
+        margin-bottom: 15px;
+    }
+
+    .headerRow p {
+        order: 2;
+    }
+
+}

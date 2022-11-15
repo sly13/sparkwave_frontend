@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    background: #222222;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.input {
+
+    flex: 1 1 100%;
+    border: none;
+    background: transparent;
+    
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.03em;
+
+    color: #FFFFFF;
+
+}
+
+.button {
+    cursor: pointer;
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    opacity: 0.3;
+}
+
+
+.icon {
+    cursor: pointer;
+}

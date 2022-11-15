@@ -1,0 +1,18 @@
+.body {
+    flex: 1 1 100%;
+    background: #121212;
+    padding: 42px 0 112px 0;
+    width: 100%;
+}
+
+.container {
+    width: 86.16%;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1080px) {
+    .body {
+        padding: 115px 0 112px 0;    
+    }
+}

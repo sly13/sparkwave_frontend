@@ -1,0 +1,73 @@
+.card {
+    position: absolute;
+    top: 20px;
+    min-width: 150px;
+    min-height: 150px;
+    transform: translateX(-50%);
+}
+
+.cardHowered {
+    position: absolute;
+    min-width: 196px;
+    min-height: 183px;
+    top: -60px;
+    transform: translateX(-50%);
+}
+.cardHowered .downLine {
+    top: 50%;
+}
+
+.cardHowered .hoverMessage {
+    top: 100%;
+    transform: translateY(40%);
+}
+
+.downLine {
+    z-index: 1;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.19);
+}
+
+.image {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+.hoverMessage {
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: -0.03em;
+
+    color: #888888;
+    background: #0F0F0F;
+    border: 1px solid #BFBFBF;
+    border-radius: 10px;
+    padding: 7.5px;
+}
+
+.hoverMessage span {
+    color: #fff;
+}
+
+
+@media screen and (max-width: 1500px) { 
+
+    .downLine {
+        top: 50%;
+    }
+}

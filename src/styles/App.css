@@ -1,0 +1,165 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@font-face {
+  font-family: 'PP Monument Extended';
+  src:  url('../fonts/PPMonumentExtended/PPMonumentExtended-Bold.eot');
+  src:  url('../fonts/PPMonumentExtended/PPMonumentExtended-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/PPMonumentExtended/PPMonumentExtended-Bold.woff2') format('woff2'),
+       url('../fonts/PPMonumentExtended/PPMonumentExtended-Bold.woff') format('woff'),
+       url('../fonts/PPMonumentExtended/PPMonumentExtended-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Monument Extended';
+  src:  url('../fonts/PPMonumentExtended/PPMonumentExtended-Light.eot');
+  src:  url('../fonts/PPMonumentExtended/PPMonumentExtended-Light.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/PPMonumentExtended/PPMonumentExtended-Light.woff2') format('woff2'),
+       url('../fonts/PPMonumentExtended/PPMonumentExtended-Light.woff') format('woff'),
+       url('../fonts/PPMonumentExtended/PPMonumentExtended-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Monument Extended';
+  src:  url('../fonts/PPMonumentExtended/PPMonumentExtended-Regular.eot');
+  src:  url('../fonts/PPMonumentExtended/PPMonumentExtended-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/PPMonumentExtended/PPMonumentExtended-Regular.woff2') format('woff2'),
+       url('../fonts/PPMonumentExtended/PPMonumentExtended-Regular.woff') format('woff'),
+       url('../fonts/PPMonumentExtended/PPMonumentExtended-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Supply Mono';
+  src:  url('../fonts/PPSupplyMono/PPSupplyMono-Bold.eot');
+  src:  url('../fonts/PPSupplyMono/PPSupplyMono-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/PPSupplyMono/PPSupplyMono-Bold.woff2') format('woff2'),
+       url('../fonts/PPSupplyMono/PPSupplyMono-Bold.woff') format('woff'),
+       url('../fonts/PPSupplyMono/PPSupplyMono-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Supply Mono';
+  src:  url('../fonts/PPSupplyMono/PPSupplyMono-Regular.eot');
+  src:  url('../fonts/PPSupplyMono/PPSupplyMono-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/PPSupplyMono/PPSupplyMono-Regular.woff2') format('woff2'),
+       url('../fonts/PPSupplyMono/PPSupplyMono-Regular.woff') format('woff'),
+       url('../fonts/PPSupplyMono/PPSupplyMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'PP Supply Mono';
+  src:  url('../fonts/PPSupplyMono/PPSupplyMono-Medium.eot');
+  src:  url('../fonts/PPSupplyMono/PPSupplyMono-Medium.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/PPSupplyMono/PPSupplyMono-Medium.woff2') format('woff2'),
+       url('../fonts/PPSupplyMono/PPSupplyMono-Medium.woff') format('woff'),
+       url('../fonts/PPSupplyMono/PPSupplyMono-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+.root{
+    height: 100%;
+}
+
+.App{
+    display: flex;
+    height: 100%;
+}

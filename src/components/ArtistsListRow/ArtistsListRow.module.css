@@ -1,0 +1,27 @@
+.row {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.span {
+    display: block;
+    font-family: 'PP Supply Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.03em;
+
+    color: #FFFFFF;
+
+    opacity: 0.5;
+    margin-bottom: 40px;
+}

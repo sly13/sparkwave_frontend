@@ -1,0 +1,14 @@
+.text {
+    font-family: 'PP Monument Extended';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 49px;
+    line-height: 120%;
+
+    /* identical to box height, or 59px */
+    letter-spacing: -0.03em;
+
+    color: #FFFFFF;
+
+
+}

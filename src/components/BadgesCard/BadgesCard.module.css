@@ -1,0 +1,106 @@
+.card {
+    margin-bottom: 20px;
+    margin-right: 20px;
+
+}
+
+
+
+
+@media screen and (max-width: 1500px) and (min-width: 1440px) {
+    .card {
+        margin-right: 15px;
+    }
+    .card:nth-child(6n+6){
+        margin-right: 0;
+    }
+}
+
+
+@media screen and (max-width: 1440px) and (min-width: 1387px) {
+    .card {
+        margin-right: 45px;
+    }
+    .card:nth-child(5n+5){
+        margin-right: 0;
+    }
+    
+}
+
+@media screen and (max-width: 1387px) and (min-width: 1251px) {
+    .card {
+        margin-right: 15px;
+    }
+    .card:nth-child(5n+5){
+        margin-right: 0;
+    }
+    
+}
+
+@media screen and (max-width: 1250px) and (min-width: 1160px) {
+    .card {
+        margin-right: 45px;
+    }
+    .card:nth-child(4n+4){
+        margin-right: 0;
+    }
+    
+}
+
+
+@media screen and (max-width: 1150px) and (min-width: 1160px) {
+    .card {
+        margin-right: 20px;
+    }
+    .card:nth-child(4n+4){
+        margin-right: 0;
+    }
+    
+}
+
+
+@media screen and (max-width: 1060px) and (min-width: 970px) {
+    .card {
+        margin-right: 60px;
+    }
+    .card:nth-child(4n+4){
+        margin-right: 0;
+    }
+    
+}
+
+@media screen and (max-width: 970px) and (min-width: 853px) {
+    .card {
+        margin-right: 35px;
+    }
+    .card:nth-child(4n+4){
+        margin-right: 0;
+    }
+    
+}
+
+@media screen and (max-width: 852px) {
+    .card {
+        margin-right: 10px;
+    }
+    .card:nth-child(4n+4){
+        margin-right: 0;
+    }
+    
+}
+
+
+@media screen and (max-width: 750px) {
+    .card {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .card img {
+        display: inline-block;
+        width: 80%;
+    }
+    
+}

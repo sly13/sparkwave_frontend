@@ -1,0 +1,21 @@
+.MyButton {
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+
+    text-align: center;
+    padding: 18px 30px;
+    background: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    backdrop-filter: blur(3.11181px);
+
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 12px;
+}
+
+.MyButton:hover {
+    cursor: pointer;
+}

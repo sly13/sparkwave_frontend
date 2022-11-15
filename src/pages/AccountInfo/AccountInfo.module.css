@@ -1,0 +1,139 @@
+.headerRow {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.subtitle {
+    font-family: 'PP Monument Extended';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    opacity: 0.3;
+}
+
+.title {
+    font-family: 'PP Monument Extended';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 43px;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin-top: 53px;
+
+
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 61px;
+}
+
+.label {
+    font-family: 'PP Monument Extended';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: flex-end;
+    color: #FFFFFF;
+    opacity: 0.3;
+    margin-bottom: 10px;
+}
+
+
+.text {
+    font-family: 'PP Monument Extended';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: flex-end;
+    color: #FFFFFF;
+}
+
+.block {
+    margin-bottom: 28px;
+}
+
+.img {
+    border-radius: 24px;
+    margin-top: 23px;
+}
+
+
+@media screen and (max-width: 921px) {
+    .row { 
+        flex-direction: column;
+    }
+
+    .headerRow {
+        margin-bottom: 10px;
+    }
+
+    .title {
+        margin-bottom: 20px;
+    }
+
+
+    .column:first-child {
+        order: 2;
+    }
+
+    .column:last-child{
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .img {
+        min-width: 50%;
+
+    }
+
+    .label {
+        text-align: center;
+    }
+
+    .previewComment {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+
+    .headerRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .headerRow div{
+        order: 1;
+        margin-bottom: 15px;
+    }
+
+    .headerRow p {
+        order: 2;
+    }
+    .label, .text {
+        word-break: break-all;
+    }
+
+    .title {
+        font-size: 35px;
+    }
+
+}
