@@ -1,12 +1,15 @@
 import { ErrorMessage, Form, Formik } from "formik";
 import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ColorButton from "../../components/UI/ColorButton/ColorButton";
 import FormInput from "../../components/UI/FormInput/FormInput";
 import Line from "../../components/UI/line/Line";
+import { addArtist } from "../../utils/api/api";
 import classes from './AddArtist.module.css'
 import { ArtistSchema } from "./validation";
 
 function AddArtist() {
+	let navigate = useNavigate();
 	const [formData, setFormData] = useState('');
 
 	const initialValues = {
@@ -20,7 +23,12 @@ function AddArtist() {
 
 	const handleSubmit = async () => {
 		console.log('submit: s', formData.values)
-		// await loginUser(formData.values);
+		const response = await addArtist(formData.values);
+		console.log('response', response);
+		if (response.data.success) {
+			navigate('/admin')
+			console.log('success')
+		}
 	};
 
 	useEffect(() => {
