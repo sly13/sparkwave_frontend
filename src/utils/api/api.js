@@ -33,7 +33,13 @@ export const getArtist = async ({ id }) => {
 };
 
 export const removeArtist = async ({ id }) => {
-	const response = await axios.delete(`${BACKEND_BASE_URL}artists/${id}`);
+	const config = {
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+			'x-access-token': localStorage.getItem('accessToken'),
+		},
+	};
+	const response = await axios.delete(`${BACKEND_BASE_URL}artists/${id}`, config);
 	return response.data;
 };
 
