@@ -29,6 +29,9 @@ function App() {
         <Route path='/auth/login' element={<Login />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='/create-artist' element={<AddArtist />} />
+        <Route path={'/artist'}>
+          <Route path=":id" element={<AddArtist />} />
+        </Route>
       </Routes>
     </div>
   );

@@ -1,16 +1,19 @@
 import { ErrorMessage, Form, Formik } from "formik";
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ColorButton from "../../components/UI/ColorButton/ColorButton";
 import FormInput from "../../components/UI/FormInput/FormInput";
 import Line from "../../components/UI/line/Line";
-import { addArtist } from "../../utils/api/api";
+import { addArtist, getArtist, updateArtist } from "../../utils/api/api";
 import classes from './AddArtist.module.css'
 import { ArtistSchema } from "./validation";
 
 function AddArtist() {
+	const { id } = useParams();
 	let navigate = useNavigate();
 	const [formData, setFormData] = useState('');
+
+	const isAddMode = !id;
 
 	const initialValues = {
 		soundcloud: '',
@@ -21,14 +24,51 @@ function AddArtist() {
 		soundxyz: '',
 	};
 
-	const handleSubmit = async () => {
-		console.log('submit: s', formData.values)
-		const response = await addArtist(formData.values);
-		console.log('response', response);
-		if (response.data.success) {
-			navigate('/admin')
-			console.log('success')
+	const [formValues, setFormValues] = useState(initialValues);
+
+	useEffect(() => {
+		if (!isAddMode) {
+			const getArtistById = async () => {
+				const response = await getArtist({ id });
+				setFormValues(response);
+			};
+			getArtistById();
 		}
+	}, []);
+
+	const handleSubmit = async () => {
+		const { soundcloud, username, email, twitter, address, soundxyz } = formData.values;
+		const actionMethod = !isAddMode ? updateArtist : addArtist;
+
+		const data = new FormData();
+		data.append('soundcloud', soundcloud);
+		data.append('username', username);
+		data.append('email', email);
+		data.append('twitter', twitter);
+		data.append('address', address);
+		data.append('soundxyz', soundxyz);
+
+		try {
+			const response = await actionMethod({ data, id });
+			console.log('response', response);
+
+			if (response.data.success) {
+				navigate('/admin')
+				console.log('success')
+			}
+		} catch (e) {
+			console.log('error', e);
+			// setError: (e) => {
+			// 	setError(e);
+			// 	formData.actions.setSubmitting(false);
+			// 	// console.log('e.response', e.response.data.error_message);
+			// 	if (e.response.status === 400) {
+			// 		formData.actions.setFieldError('address', 'Wallet already exists');
+			// 	}
+			// }
+		}
+
+
 	};
 
 	useEffect(() => {
@@ -41,20 +81,23 @@ function AddArtist() {
 		setFormData({ values, actions });
 	}, []);
 
+	console.log('formvalues', formValues)
+
 	return (
 		<>
 			<div className={'body'}>
 				<div className={'container'}>
 					<h1 className={classes.title}>
-						Add artist
+						{isAddMode ? 'Add' : 'Update'} artist
 					</h1>
 					<Line style={{ marginBottom: '58px' }} />
 					<div className={classes.row}>
 						<Formik
-							initialValues={initialValues}
+							initialValues={formValues}
 							validationSchema={ArtistSchema}
 							validateOnChange={false}
 							onSubmit={onSubmitHandler}
+							enableReinitialize
 						>
 							{({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, setFieldValue }) => (
 								<>
