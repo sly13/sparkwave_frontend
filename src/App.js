@@ -23,8 +23,11 @@ function App() {
       <Routes>
         <Route path='/' element={<MainContent />} />
         <Route path='/find-artists' element={<FindArtists />} />
+        <Route path={'/profile'}>
+          <Route path=":id" element={<AccountInfo />} />
+        </Route>
         <Route path='/artist-detail' element={<ArtistDetail />} />
-        <Route path='/info' element={<AccountInfo />} />
+        {/* <Route path='/info' element={<AccountInfo />} /> */}
         <Route path='/make-drop' element={<MakeDrop />} />
         <Route path='/auth/login' element={<Login />} />
         <Route path='/admin' element={<Admin />} />

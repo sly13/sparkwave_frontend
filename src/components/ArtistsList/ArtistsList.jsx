@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ArtistsListRow from '../ArtistsListRow/ArtistsListRow'
 import classes from './ArtistsList.module.css'
 
@@ -14,79 +14,53 @@ import image_5 from '../../img/Rectangle 68.png'
 import image_6 from '../../img/Rectangle 58.png'
 import image_7 from '../../img/Rectangle 59.png'
 import image_8 from '../../img/Rectangle 60.png'
+import { getArtists } from '../../utils/api/api'
 
+export default function ArtistsList({ query }) {
+    const [artists, setArtists] = useState({});
+    const [loading, setLoading] = useState(false);
 
-export default function ArtistsList() {
+    useEffect(() => {
+        const getArtistsList = async () => {
+            setLoading(true);
+            try {
+                const artists = await getArtists({ query });
+                const data = {};
 
-    const rowA = [
-        {
-            header: 'Illumination',
-            text: '33%',
-            image: Illumination
-        },
-        {
-            header: 'Middle Mode',
-            text: '33%',
-            image: MiddleMode
-        },
-        {
-            header: 'Afek',
-            text: '33%',
-            image: Afek
-        },
-    ]
+                artists.forEach(element => {
+                    const firstLetter = element.username.substring(0, 1).toLowerCase();
+                    if (!data.hasOwnProperty(firstLetter)) {
+                        Object.assign(data, { [firstLetter]: [element] });
+                    } else {
+                        data[firstLetter].push(element);
+                    }
+                });
 
-    const rowB = [
-        {
-            header: 'Illumination',
-            text: '33%',
-            image: image_1
-        },
-        {
-            header: 'Middle Mode',
-            text: '33%',
-            image: image_2
-        },
-        {
-            header: 'Afek',
-            text: '33%',
-            image: image_3
-        },
-        {
-            header: 'Middle Mode',
-            text: '33%',
-            image: image_4
-        },
-        {
-            header: 'Afek',
-            text: '33%',
-            image: image_5
-        },
-    ]
+                const ordered = Object.keys(data).sort().reduce(
+                    (obj, key) => {
+                        obj[key] = data[key];
+                        return obj;
+                    },
+                    {}
+                );
 
-    const rowC = [
-        {
-            header: 'Illumination',
-            text: '33%',
-            image: image_6
-        },
-        {
-            header: 'Middle Mode',
-            text: '33%',
-            image: image_7
-        },
-        {
-            header: 'Afek',
-            text: '33%',
-            image: image_8
-        },
-        
-    ]
-  return (
-    <div>
-        <ArtistsListRow symbol='A' cardsList={rowA} />
-        <ArtistsListRow symbol='B' cardsList={rowB} />
-        <ArtistsListRow symbol='C' cardsList={rowC} />
-    </div>
-  )
+                setArtists(ordered);
+                setLoading(false);
+            } catch (e) {
+                console.log('e', e);
+            }
+        }
+        getArtistsList();
+    }, [query]);
+    console.log('loading', loading);
+    console.log('artists.length === 0', Object.keys(artists).length === 0);
+
+    return (
+        <div>
+            {Object.keys(artists).length === 0 ? <div className={classes.empty}>Artist not found.</div> : Object.keys(artists).map((item) => {
+                return <ArtistsListRow symbol={item} cardsList={artists[item]} />;
+            })}
+
+        </div>
+    )
 }

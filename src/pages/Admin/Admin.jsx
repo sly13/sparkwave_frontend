@@ -12,7 +12,9 @@ function Admin() {
 	const [artists, setArtists] = useState();
 
 	const getArtistsList = async () => {
-		const artists = await getArtists();
+		const artists = await getArtists({ query: '' });
+
+		console.log('artists!', artists);
 		setArtists(artists);
 	}
 

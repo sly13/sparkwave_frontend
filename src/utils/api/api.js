@@ -12,8 +12,8 @@ export const addArtist = async ({ data }) => {
 	return await axios.post(`${BACKEND_BASE_URL}artists`, data, config);
 };
 
-export const getArtists = async () => {
-	const response = await axios.get(`${BACKEND_BASE_URL}artists`);
+export const getArtists = async ({ query }) => {
+	const response = await axios.get(`${BACKEND_BASE_URL}artists?search=${query}`);
 	return response.data;
 };
 
@@ -31,6 +31,7 @@ export const getArtist = async ({ id }) => {
 	const response = await axios.get(`${BACKEND_BASE_URL}artists/${id}`);
 	return response.data;
 };
+
 
 export const removeArtist = async ({ id }) => {
 	const config = {
