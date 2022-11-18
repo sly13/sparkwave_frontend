@@ -21,7 +21,7 @@ export default function SideBar() {
       <div className={menuBurgerActive ? [classes.container, classes.active].join(' ') : [classes.container]}>
         <div className={classes.firstBlock}>
           <div className={classes.row}>
-            <Logo />
+            <Logo onClick={() => navigate('/')} cursor={"pointer"} />
             <BurgerButton pressed={menuBurgerActive} clickHandler={() => {
               setMenuBurgerActive(!menuBurgerActive)
             }} />

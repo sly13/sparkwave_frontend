@@ -118,6 +118,7 @@ function AddArtist() {
 													</p>
 													<DropsCard style={{ margin: 0 }} setFieldValue={setFieldValue} avatar={values.avatar && values.avatar[0] ? values.avatar[0].preview : ''} error={errors.avatar} touched={touched.avatar} text={'Archo Sactus'} />
 												</div>
+
 											</div>
 
 											<label htmlFor="" className={classes.label} >Name</label>
