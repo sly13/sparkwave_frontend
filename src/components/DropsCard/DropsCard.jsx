@@ -5,7 +5,6 @@ import CustomFileInput from '../UI/FileInput'
 import classes from './DropsCard.module.css'
 
 export default function DropsCard({ avatar, error, touched, text, color, style, setFieldValue }) {
-  console.log('error', error);
   return (
     <>
       {/* <div className={classes.card} style={{ background: `linear-gradient(353deg, ${color} -16%, rgba(15,15,15,1) 40%`, ...style }}> */}
@@ -30,7 +29,7 @@ export default function DropsCard({ avatar, error, touched, text, color, style, 
         ) : (
           <>
             <div className={classes.card}>
-              <img src={avatar.preview} className={classes.image} alt="" maxWidth={"100px"} />
+              <img src={avatar} className={classes.image} alt="" maxWidth={"100px"} />
               {/* <p className={classes.text}>{text}</p> */}
             </div>
             <MyButton style={{ width: '100%', marginTop: '35px' }} onClick={() => setFieldValue('avatar', '')}>Change</MyButton>

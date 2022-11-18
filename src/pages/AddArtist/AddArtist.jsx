@@ -116,7 +116,7 @@ function AddArtist() {
 													<p className={classes.previewComment}>
 														File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB
 													</p>
-													<DropsCard style={{ margin: 0 }} setFieldValue={setFieldValue} avatar={values.avatar[0]} error={errors.avatar} touched={touched.avatar} text={'Archo Sactus'} />
+													<DropsCard style={{ margin: 0 }} setFieldValue={setFieldValue} avatar={values.avatar[0] ? values.avatar[0].preview : ''} error={errors.avatar} touched={touched.avatar} text={'Archo Sactus'} />
 												</div>
 											</div>
 

@@ -53,7 +53,7 @@ const CustomFileInput = (props) => {
 
   return (
     <>
-      <div style={{ "cursor": "pointer" }}>
+      <div style={{ "cursor": "pointer" }} {...getRootProps({ className: 'dropzone' })}>
         {/* <label htmlFor="" className="form__label">
           {label}
         </label> */}

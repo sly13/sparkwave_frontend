@@ -40,27 +40,27 @@ export default function MainContent() {
         </div>
         <Line></Line>
         <Balance></Balance>
-        <MyLabel style={{marginBottom: 11 + 'px'}}>Supported artist’s</MyLabel>
+        <MyLabel style={{ marginBottom: 11 + 'px' }}>Supported artist’s</MyLabel>
         <Line></Line>
-        <div className={classes.row} style={{marginBottom: 31 + 'px', justifyContent: 'flex-start'}}>
-            <ArtistCard header="Illumination" text="33%" image={Illumination} ></ArtistCard>
-            <ArtistCard header="Middle Mode" text="33%" image={MiddleMode} ></ArtistCard>
-            <ArtistCard header="Afek" text="33%" image={Afek} ></ArtistCard>
+        <div className={classes.row} style={{ marginBottom: 31 + 'px', justifyContent: 'flex-start' }}>
+          <ArtistCard header="Illumination" text="33%" image={Illumination} ></ArtistCard>
+          <ArtistCard header="Middle Mode" text="33%" image={MiddleMode} ></ArtistCard>
+          <ArtistCard header="Afek" text="33%" image={Afek} ></ArtistCard>
         </div>
-        <MyLabel style={{marginBottom: 11 + 'px'}}>Your badges</MyLabel>
+        <MyLabel style={{ marginBottom: 11 + 'px' }}>Your badges</MyLabel>
         <Line></Line>
-        <div className={classes.row} style={{justifyContent: 'flex-start', flexWrap: 'wrap'}}>
+        <div className={classes.row} style={{ justifyContent: 'flex-start', flexWrap: 'wrap' }}>
           <BadgesCard image={Tropi}></BadgesCard>
           <BadgesCard image={Delien}></BadgesCard>
           <BadgesCard image={Archo}></BadgesCard>
           <BadgesCard image={Dudi}></BadgesCard>
         </div>
-        <MyLabel style={{marginBottom: 11 + 'px', marginTop: 30 + 'px'}}>Your drops</MyLabel>
+        <MyLabel style={{ marginBottom: 11 + 'px', marginTop: 30 + 'px' }}>Your drops</MyLabel>
         <Line></Line>
-        <div className={classes.row} style={{justifyContent: 'flex-start', margin: '0 -24px 0 0'}}>
-          <DropsCard image={IlluminationDrops} text="Illumination Jastice" color="rgba(253,102,54,1)"></DropsCard>
-          <DropsCard image={MiddleModeDrops} text="Middle Mode EXIT" color="rgba(253,102,54,1)"></DropsCard>
-          <DropsCard image={AfekDrops} text="Afek Solarship" color='rgba(63, 241, 253, 1)'></DropsCard>
+        <div className={classes.row} style={{ justifyContent: 'flex-start', margin: '0 -24px 0 0' }}>
+          <DropsCard avatar={IlluminationDrops} text="Illumination Jastice" color="rgba(253,102,54,1)"></DropsCard>
+          <DropsCard avatar={MiddleModeDrops} text="Middle Mode EXIT" color="rgba(253,102,54,1)"></DropsCard>
+          <DropsCard avatar={AfekDrops} text="Afek Solarship" color='rgba(63, 241, 253, 1)'></DropsCard>
         </div>
       </div>
     </div>
