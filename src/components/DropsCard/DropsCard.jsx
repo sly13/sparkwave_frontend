@@ -30,9 +30,9 @@ export default function DropsCard({ avatar, error, touched, text, color, style, 
           <>
             <div className={classes.card}>
               <img src={avatar} className={classes.image} alt="" maxWidth={"100px"} />
-              {/* <p className={classes.text}>{text}</p> */}
+              <p className={classes.text}>{text}</p>
             </div>
-            <MyButton style={{ width: '100%', marginTop: '35px' }} onClick={() => setFieldValue('avatar', '')}>Change</MyButton>
+            {setFieldValue && <MyButton style={{ width: '100%', marginTop: '35px' }} onClick={() => setFieldValue('avatar', '')}>Change</MyButton>}
           </>
         )
       }

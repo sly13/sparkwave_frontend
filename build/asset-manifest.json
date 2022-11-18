@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ea55110c.css",
-    "main.js": "/static/js/main.b17c2139.js",
+    "main.css": "/static/css/main.cea44d4c.css",
+    "main.js": "/static/js/main.0a107311.js",
     "static/media/Rectangle 25(3).png": "/static/media/Rectangle 25(3).35339056842dd124ee55.png",
     "static/media/Rectangle 25(1).png": "/static/media/Rectangle 25(1).39d7c3f81dc8ac6731b2.png",
     "static/media/Rectangle 25(2).png": "/static/media/Rectangle 25(2).a912ef555f2959c7dec2.png",
@@ -50,11 +50,11 @@
     "static/media/edit.svg": "/static/media/edit.8c602a7fab01400cfdc9fd3f8d2093f2.svg",
     "static/media/search.svg": "/static/media/search.3dee5de93c879bd9753d.svg",
     "index.html": "/index.html",
-    "main.ea55110c.css.map": "/static/css/main.ea55110c.css.map",
-    "main.b17c2139.js.map": "/static/js/main.b17c2139.js.map"
+    "main.cea44d4c.css.map": "/static/css/main.cea44d4c.css.map",
+    "main.0a107311.js.map": "/static/js/main.0a107311.js.map"
   },
   "entrypoints": [
-    "static/css/main.ea55110c.css",
-    "static/js/main.b17c2139.js"
+    "static/css/main.cea44d4c.css",
+    "static/js/main.0a107311.js"
   ]
 }
