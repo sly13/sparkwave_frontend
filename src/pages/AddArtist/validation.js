@@ -7,4 +7,5 @@ export const ArtistSchema = yup.object().shape({
   twitter: yup.string().required('Required'),
   address: yup.string().required('Required'),
   soundxyz: yup.string().required('Required'),
+  avatar: yup.array().required('Required'),
 });

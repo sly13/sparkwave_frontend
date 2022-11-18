@@ -1,52 +1,56 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(353deg, rgba(253,102,54,1) -16%, rgba(15,15,15,1) 40%);
-    border-radius: 24px;
-    padding: 20px 20px 7px 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* background: linear-gradient(353deg, rgba(253,102,54,1) -16%, rgba(15,15,15,1) 40%); */
+	border-radius: 24px;
+	padding: 20px 20px 7px 20px;
 
-    box-shadow: 4px 2px 4px -2px rgba(207,197,197,1);
-    -webkit-box-shadow: 4px 2px 4px -2px rgba(207,197,197,1);
-    -moz-box-shadow: 4px 2px 4px -2px rgba(207,197,197,1);
-    margin-bottom: 30px;
-    margin-right: 24px;
-
+	/* box-shadow: 4px 2px 4px -2px rgba(207, 197, 197, 1);
+	-webkit-box-shadow: 4px 2px 4px -2px rgba(207, 197, 197, 1);
+	-moz-box-shadow: 4px 2px 4px -2px rgba(207, 197, 197, 1); */
+	margin-bottom: 30px;
+	margin-top: 50px;
+	margin-right: 24px;
 }
 
+.error {
+	color: rgb(199, 44, 44);
+}
 
 .image {
-    border-radius: 16px;
-    margin-bottom: 21px;
+	border-radius: 16px;
+	margin-bottom: 21px;
+	max-width: 150px;
 }
 
 .text {
-    font-family: 'PP Monument Extended';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
+	font-family: 'PP Monument Extended';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 28px;
 
-    /* or 175% */
-    display: flex;
-    align-items: flex-end;
-    text-align: center;
+	/* or 175% */
+	display: flex;
+	align-items: flex-end;
+	text-align: center;
 
-    background: linear-gradient(91.6deg, rgba(255, 255, 255, 0.37) -10.82%, #FFFFFF 45.68%, rgba(255, 255, 255, 0.3) 118.2%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+	background: linear-gradient(
+		91.6deg,
+		rgba(255, 255, 255, 0.37) -10.82%,
+		#ffffff 45.68%,
+		rgba(255, 255, 255, 0.3) 118.2%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
 
-    max-width: 50%;
+	max-width: 50%;
 }
 
-
-
-
-
 @media screen and (max-width: 1500px) {
-    .card {
-        
-    }
+	.card {
+	}
 }

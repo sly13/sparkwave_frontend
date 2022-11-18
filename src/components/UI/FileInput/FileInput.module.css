@@ -1,0 +1,12 @@
+.upload {
+	color: white;
+	display: 'flex';
+	flex-flow: 'column';
+	font-size: 18px;
+	font-family: 'PP Monument Extended';
+	padding-top: 20px;
+}
+
+.error {
+	color: rgb(199, 44, 44);
+}
