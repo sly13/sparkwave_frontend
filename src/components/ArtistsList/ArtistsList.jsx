@@ -26,6 +26,7 @@ export default function ArtistsList({ query }) {
             try {
                 const artists = await getArtists({ query });
                 const data = {};
+                console.log('artists', artists);
 
                 artists.forEach(element => {
                     const firstLetter = element.username.substring(0, 1).toLowerCase();
@@ -51,16 +52,14 @@ export default function ArtistsList({ query }) {
             }
         }
         getArtistsList();
-    }, [query]);
-    console.log('loading', loading);
-    console.log('artists.length === 0', Object.keys(artists).length === 0);
 
-    return (
+    }, [query]);
+
+    return (!loading && artists ?
         <div>
             {Object.keys(artists).length === 0 ? <div className={classes.empty}>Artist not found.</div> : Object.keys(artists).map((item) => {
                 return <ArtistsListRow symbol={item} cardsList={artists[item]} />;
             })}
-
-        </div>
+        </div> : <div style={{ color: "white" }}>Loading...</div>
     )
 }

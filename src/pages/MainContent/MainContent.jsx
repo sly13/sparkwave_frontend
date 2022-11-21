@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classes from "./MainContent.module.css"
 import '../../styles/general.css'
 import SearchRow from '../../components/SearchRow/SearchRow'
@@ -31,11 +31,15 @@ import MyButton from '../../components/UI/button/MyButton'
 
 
 export default function MainContent() {
+  const [query, setQuery] = useState('');
+
+
+
   return (
     <div className={'body'}>
       <div className={'container'}>
         <div className={classes.row}>
-          <SearchRow placeholder="Search something"></SearchRow>
+          <SearchRow placeholder="Search something" setQuery={setQuery}></SearchRow>
           <BalanceOnTopRight></BalanceOnTopRight>
         </div>
         <Line></Line>

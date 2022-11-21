@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import ArtistsList from '../../components/ArtistsList/ArtistsList'
 import BalanceOnTopRight from '../../components/BalanceOnTopRight/BalanceOnTopRight'
 import SearchRow from '../../components/SearchRow/SearchRow'
@@ -7,7 +8,9 @@ import classes from './FindArtists.module.css'
 
 
 export default function FindArtists() {
-  const [query, setQuery] = useState('');
+  const [searchParams] = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get('search'));
+
 
   return (
     <div className={'body'}>
@@ -17,7 +20,7 @@ export default function FindArtists() {
         </div>
         <Line />
         <div className={classes.row} style={{ justifyContent: 'flex-end', marginBottom: '61' + 'px' }}>
-          <SearchRow placeholder='Search Something' setQuery={setQuery}></SearchRow>
+          <SearchRow placeholder='Search Something' setQuery={setQuery} value={searchParams.get('search')}></SearchRow>
         </div>
         <ArtistsList query={query} />
       </div>

@@ -13,7 +13,12 @@ export const addArtist = async ({ data }) => {
 };
 
 export const getArtists = async ({ query }) => {
-	const response = await axios.get(`${BACKEND_BASE_URL}artists?search=${query}`);
+	const config = query === '' ? {
+		params: {}
+	} : {
+		params: { search: query }
+	}
+	const response = await axios.get(`${BACKEND_BASE_URL}artists`, config);
 	return response.data;
 };
 

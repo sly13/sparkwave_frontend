@@ -23,6 +23,7 @@ function App() {
       <Routes>
         <Route path='/' element={<MainContent />} />
         <Route path='/find-artists' element={<FindArtists />} />
+
         <Route path={'/profile'}>
           <Route path=":id" element={<AccountInfo />} />
         </Route>

@@ -6,9 +6,6 @@ import image_1 from '../../img/Rectangle 46.png'
 import { useNavigate } from 'react-router-dom'
 
 export default function ArtistsListRow({ symbol, cardsList }) {
-
-  console.log('symbol', symbol);
-  console.log('symbol', cardsList);
   return (
     <div className={classes.column} style={{ marginBottom: 39 + 'px' }}>
       {
