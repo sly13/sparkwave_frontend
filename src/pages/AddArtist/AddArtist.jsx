@@ -96,31 +96,18 @@ function AddArtist() {
 						{isAddMode ? 'Add' : 'Update'} artist
 					</h1>
 					<Line style={{ marginBottom: '58px' }} />
-					<div className={classes.row}>
-						<Formik
-							initialValues={formValues}
-							validationSchema={ArtistSchema}
-							validateOnChange={false}
-							onSubmit={onSubmitHandler}
-							enableReinitialize
-						>
-							{({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, setFieldValue }) => (
-								<>
-									<Form onSubmit={handleSubmit} className={classes.form}>
+					<Formik
+						initialValues={formValues}
+						validationSchema={ArtistSchema}
+						validateOnChange={false}
+						onSubmit={onSubmitHandler}
+						enableReinitialize
+					>
+						{({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, setFieldValue }) => (
+							<>
+								<Form onSubmit={handleSubmit} className={classes.form}>
+									<div className={classes.column}>
 										<div className={classes.formBlock}>
-											<div className={classes.column} style={{ "paddingBottom": '30px' }}>
-												<div className={classes.column}>
-													<p className={classes.previewInfo}>
-														Image, Video, Audio, or 3D Model
-													</p>
-													<p className={classes.previewComment}>
-														File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB
-													</p>
-													<DropsCard style={{ margin: 0 }} setFieldValue={setFieldValue} avatar={values.avatar && values.avatar[0] ? values.avatar[0].preview : ''} error={errors.avatar} touched={touched.avatar} text={'Archo Sactus'} />
-												</div>
-
-											</div>
-
 											<label htmlFor="" className={classes.label} >Name</label>
 											<FormInput
 												id="username"
@@ -213,12 +200,23 @@ function AddArtist() {
 										<div className={classes.formBlock}>
 											<ColorButton color={'#0047FF'} type="submit" textColor={'#fff'} style={{ width: '100%', marginTop: '41px' }}>Submit</ColorButton>
 										</div>
+									</div>
+									<div className={classes.column} style={{ "paddingBottom": '30px' }}>
+										<div className={classes.column}>
+											<p className={classes.previewInfo}>
+												Image, Video, Audio, or 3D Model
+											</p>
+											<p className={classes.previewComment}>
+												File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB
+											</p>
+											<DropsCard style={{ margin: 0 }} setFieldValue={setFieldValue} avatar={values.avatar && values.avatar[0] ? values.avatar[0].preview : ''} error={errors.avatar} touched={touched.avatar} text={'Archo Sactus'} />
+										</div>
 
-									</Form>
-								</>
-							)}
-						</Formik>
-					</div>
+									</div>
+								</Form>
+							</>
+						)}
+					</Formik>
 				</div>
 			</div>
 		</>
