@@ -83,7 +83,7 @@ function AddArtist() {
 	};
 
 	useEffect(() => {
-		console.log('handleSubmit');
+		console.log('handleSubmit2');
 		if (formData !== '') handleSubmit();
 	}, [formData]);
 
