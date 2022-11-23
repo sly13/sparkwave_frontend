@@ -10,11 +10,13 @@ import { ArtistSchema } from "./validation";
 import preview from '../../img/Rectangle 25(3).png'
 import DropsCard from "../../components/DropsCard/DropsCard";
 import MyButton from "../../components/UI/button/MyButton";
+import { BACKEND_BASE_URL } from "../../utils/contants";
 
 function AddArtist() {
 	const { id } = useParams();
 	let navigate = useNavigate();
 	const [formData, setFormData] = useState('');
+	const [oldAvatar, setOldAvatar] = useState('');
 
 	const isAddMode = !id;
 
@@ -34,7 +36,9 @@ function AddArtist() {
 		if (!isAddMode) {
 			const getArtistById = async () => {
 				const response = await getArtist({ id });
+				console.log('response', response);
 				setFormValues(response);
+				setOldAvatar(response.avatar);
 			};
 			getArtistById();
 		}
@@ -43,6 +47,8 @@ function AddArtist() {
 	const handleSubmit = async () => {
 		const { soundcloud, username, email, twitter, address, soundxyz, avatar } = formData.values;
 		const actionMethod = !isAddMode ? updateArtist : addArtist;
+		console.log('avatar', avatar);
+		console.log('initialValues', initialValues);
 
 		const data = new FormData();
 		data.append('soundcloud', soundcloud);
@@ -51,7 +57,7 @@ function AddArtist() {
 		data.append('twitter', twitter);
 		data.append('address', address);
 		data.append('soundxyz', soundxyz);
-		data.append('avatar', avatar);
+		data.append('avatar', Array.isArray(avatar) ? avatar[0] : oldAvatar);
 
 		try {
 			const response = await actionMethod({ data, id });
@@ -209,7 +215,19 @@ function AddArtist() {
 											<p className={classes.previewComment}>
 												File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB
 											</p>
-											<DropsCard style={{ margin: 0 }} setFieldValue={setFieldValue} avatar={values.avatar && values.avatar[0] ? values.avatar[0].preview : ''} error={errors.avatar} touched={touched.avatar} text={'Archo Sactus'} />
+											{/* {values.avatar && <DropsCard style={{ margin: 0 }} setFieldValue={setFieldValue} avatar={BACKEND_BASE_URL + values.avatar} error={errors.avatar} touched={touched.avatar} text={''} />
+											} */}
+											{/* {(values.avatar[0] || values.avatar) && */}
+											<DropsCard
+												style={{ margin: 0 }}
+												setFieldValue={setFieldValue}
+												avatar={Array.isArray(values.avatar) ? values.avatar[0].preview : values.avatar ? BACKEND_BASE_URL + values.avatar : null}
+												error={errors.avatar}
+												touched={touched.avatar}
+												text={''}
+											/>
+											{/* } */}
+
 										</div>
 
 									</div>

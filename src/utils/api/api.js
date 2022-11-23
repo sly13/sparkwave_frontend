@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BACKEND_BASE_URL } from '../contants';
+import { BACKEND_API_URL } from '../contants';
 
 export const addArtist = async ({ data }) => {
 	const config = {
@@ -9,7 +9,7 @@ export const addArtist = async ({ data }) => {
 		},
 	};
 
-	return await axios.post(`${BACKEND_BASE_URL}artists`, data, config);
+	return await axios.post(`${BACKEND_API_URL}artists`, data, config);
 };
 
 export const getArtists = async ({ query }) => {
@@ -18,7 +18,7 @@ export const getArtists = async ({ query }) => {
 	} : {
 		params: { search: query }
 	}
-	const response = await axios.get(`${BACKEND_BASE_URL}artists`, config);
+	const response = await axios.get(`${BACKEND_API_URL}artists`, config);
 	return response.data;
 };
 
@@ -29,11 +29,11 @@ export const login = async (data) => {
 		},
 	};
 
-	return await axios.post(`${BACKEND_BASE_URL}auth/login`, data, config);
+	return await axios.post(`${BACKEND_API_URL}auth/login`, data, config);
 };
 
 export const getArtist = async ({ id }) => {
-	const response = await axios.get(`${BACKEND_BASE_URL}artists/${id}`);
+	const response = await axios.get(`${BACKEND_API_URL}artists/${id}`);
 	return response.data;
 };
 
@@ -45,7 +45,7 @@ export const removeArtist = async ({ id }) => {
 			'x-access-token': localStorage.getItem('accessToken'),
 		},
 	};
-	const response = await axios.delete(`${BACKEND_BASE_URL}artists/${id}`, config);
+	const response = await axios.delete(`${BACKEND_API_URL}artists/${id}`, config);
 	return response.data;
 };
 
@@ -57,7 +57,7 @@ export const updateArtist = async ({ id, data }) => {
 		},
 	};
 
-	const response = await axios.put(`${BACKEND_BASE_URL}artists/${id}`, data, config);
+	const response = await axios.put(`${BACKEND_API_URL}artists/${id}`, data, config);
 	return response;
 };
 

@@ -6,6 +6,7 @@ import classes from './AccountInfo.module.css'
 import photo from '../../img/Rectangle 29.png'
 import { getArtist } from '../../utils/api/api'
 import { useNavigate, useParams } from 'react-router-dom'
+import { BACKEND_BASE_URL } from '../../utils/contants'
 
 export default function AccountInfo() {
   let navigate = useNavigate();
@@ -94,7 +95,7 @@ export default function AccountInfo() {
                 <p className={classes.label}>
                   Profile photo
                 </p>
-                <img className={classes.img} src={photo} alt="" />
+                <img className={classes.img} src={BACKEND_BASE_URL + artist.avatar} alt="" />
               </div>
             </div>
           </>}

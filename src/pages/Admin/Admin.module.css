@@ -163,3 +163,9 @@
 .artistsTable {
 	padding-top: 40px;
 }
+
+.tableActions {
+	display: flex;
+	grid-gap: 10px;
+	justify-content: center;
+}

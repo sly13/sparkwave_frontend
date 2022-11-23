@@ -4,6 +4,7 @@ import classes from './ArtistsListRow.module.css'
 
 import image_1 from '../../img/Rectangle 46.png'
 import { useNavigate } from 'react-router-dom'
+import { BACKEND_BASE_URL } from '../../utils/contants'
 
 export default function ArtistsListRow({ symbol, cardsList }) {
   return (
@@ -17,7 +18,7 @@ export default function ArtistsListRow({ symbol, cardsList }) {
       }
       <div className={classes.row} >
         {cardsList.map(el => {
-          return <ArtistCard header={el.username} text={'33%'} image={image_1} id={el.id} />
+          return <ArtistCard header={el.username} text={'33%'} image={BACKEND_BASE_URL + el.avatar} id={el.id} />
         })}
       </div>
     </div>

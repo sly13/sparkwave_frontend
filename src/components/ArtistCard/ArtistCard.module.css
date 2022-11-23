@@ -1,90 +1,118 @@
 .row {
-    display: flex;
-    background: #0F0F0F;
-    border-radius: 24px;
-    border: 1px solid;
-    border-image-source: linear-gradient(238.91deg, rgba(255, 255, 255, 0.2) 5.27%, rgba(255, 255, 255, 0) 83.26%);
-    padding: 18px 12px 18px 33px;
-    -webkit-box-shadow: -21px 3px 27px 0px rgba(237, 240, 242, 0.16) inset;
-    -moz-box-shadow: -21px 3px 27px 0px rgba(237, 240, 242, 0.16) inset;
-    box-shadow: 2px 0px 0px 2px rgba(237, 240, 242, 0.16);
-    flex: 0 0 32%;
-    margin-bottom: 25px;
-    margin-right: 19px;
+	display: flex;
+	background: #0f0f0f;
+	border-radius: 24px;
+	border: 1px solid;
+	border-image-source: linear-gradient(
+		238.91deg,
+		rgba(255, 255, 255, 0.2) 5.27%,
+		rgba(255, 255, 255, 0) 83.26%
+	);
+	padding: 18px 12px 18px 33px;
+	-webkit-box-shadow: -21px 3px 27px 0px rgba(237, 240, 242, 0.16) inset;
+	-moz-box-shadow: -21px 3px 27px 0px rgba(237, 240, 242, 0.16) inset;
+	box-shadow: 2px 0px 0px 2px rgba(237, 240, 242, 0.16);
+	flex: 0 0 32%;
+	margin-bottom: 25px;
+	margin-right: 19px;
 }
 
-.row:nth-child(3n+3) {
-    margin-right: 0;
+.row:nth-child(3n + 3) {
+	margin-right: 0;
+}
+
+/* Начало того что изменил */
+
+.column:last-child {
+	width: 20%;
+	margin-left: auto;
 }
 
 .image {
-    margin-left: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 100%;
 }
 
+.imageContainer {
+	padding-top: 100%;
+	position: relative;
+	max-width: 100%;
+}
+
+/* Конец того что изменил */
+
 .header {
-    font-family: 'PP Monument Extended';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    background: linear-gradient(91.6deg, rgba(255, 255, 255, 0.37) -10.82%, #FFFFFF 45.68%, rgba(255, 255, 255, 0.3) 118.2%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    margin-bottom: 10px;
+	font-family: 'PP Monument Extended';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 28px;
+	background: linear-gradient(
+		91.6deg,
+		rgba(255, 255, 255, 0.37) -10.82%,
+		#ffffff 45.68%,
+		rgba(255, 255, 255, 0.3) 118.2%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	margin-bottom: 10px;
 }
 
 .text {
-    font-family: 'PP Monument Extended';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 22px;
-    background: linear-gradient(91.6deg, rgba(255, 255, 255, 0.37) -10.82%, #FFFFFF 45.68%, rgba(255, 255, 255, 0.3) 118.2%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-
-
+	font-family: 'PP Monument Extended';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 22px;
+	background: linear-gradient(
+		91.6deg,
+		rgba(255, 255, 255, 0.37) -10.82%,
+		#ffffff 45.68%,
+		rgba(255, 255, 255, 0.3) 118.2%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
 }
-
 
 @media screen and (max-width: 1500px) and (min-width: 1251px) {
-    .row {
-        min-width: 370px;
-        margin-right: 50px;
-        
-    }
+	.row {
+		min-width: 370px;
+		margin-right: 50px;
+	}
 
-    .row:nth-child(3n+3) {
-        margin-right: 50px;
-    }
+	.row:nth-child(3n + 3) {
+		margin-right: 50px;
+	}
 }
-@media screen and (max-width: 1250px) and (min-width: 1151px)  {
-    .row {
-        min-width: 370px;
-        margin-right: 20px;
-        
-    }
+@media screen and (max-width: 1250px) and (min-width: 1151px) {
+	.row {
+		min-width: 370px;
+		margin-right: 20px;
+	}
 
-    .row:nth-child(2n+2) {
-        margin-right: 0px;
-    }
-    .row:nth-child(3n+3) {
-        margin-right: 20px;
-    }
-
+	.row:nth-child(2n + 2) {
+		margin-right: 0px;
+	}
+	.row:nth-child(3n + 3) {
+		margin-right: 20px;
+	}
 }
-
 
 @media screen and (max-width: 1165px) {
-    .row {
-        min-width: 100%;
-        justify-content: space-between;
-    }
-    .row:not(:nth-child(3n+3)) {
-        margin-right: 0;
-    }
+	.row {
+		min-width: 100%;
+		justify-content: space-between;
+	}
+	.row:not(:nth-child(3n + 3)) {
+		margin-right: 0;
+	}
 }

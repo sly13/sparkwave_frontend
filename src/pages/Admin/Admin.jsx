@@ -67,8 +67,11 @@ function Admin() {
 											<td>{item.email}</td>
 											<td>{item.address}</td>
 											<td style={{ textAlign: "center" }}>
-												<EditImg width={16} height={16} fill="white" style={{ marginRight: "10px" }} cursor="pointer" onClick={() => handleEditArtist({ id: item.id })} />
-												<DeleteImg width={16} height={16} fill="white" cursor="pointer" onClick={() => handleDeleteArtist({ id: item.id })} />
+												<div className={classes.tableActions}>
+													<EditImg width={16} height={16} fill="white" style={{ marginRight: "10px" }} cursor="pointer" onClick={() => handleEditArtist({ id: item.id })} />
+													<DeleteImg width={16} height={16} fill="white" cursor="pointer" onClick={() => handleDeleteArtist({ id: item.id })} />
+												</div>
+
 											</td>
 											{/* <td>{item.soundcloud}</td>
 										<td>{item.twitter}</td>

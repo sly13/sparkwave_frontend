@@ -10,7 +10,11 @@ export default function ArtistCard({ image, header, text, id }) {
         <h2 className={classes.header}>{header}</h2>
         <p className={classes.text} >{text}</p>
       </div>
-      <img src={image} alt="" className={classes.image} />
+      <div className={classes.column}>
+        <div className={classes.imageContainer}>
+          <img src={image} alt="" className={classes.image} />
+        </div>
+      </div>
     </div>
   )
 }
