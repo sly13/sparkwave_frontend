@@ -88,7 +88,7 @@ function AddArtist() {
 	}, [formData]);
 
 	const onSubmitHandler = useCallback((values, actions) => {
-		console.log('onSubmitHandler');
+		console.log('onSubmitHandler2');
 		setFormData({ values, actions });
 	}, []);
 
