@@ -10,6 +10,8 @@ import { networks } from '../../utils/contants';
 import { connectors } from '../../utils/connectors';
 import MyButton from '../UI/button/MyButton';
 
+
+
 export default function BalanceOnTopRight({ style, topText, bottomText }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { library, chainId, activate, deactivate, active, account } = useWeb3React();
@@ -46,6 +48,7 @@ export default function BalanceOnTopRight({ style, topText, bottomText }) {
   }, [chainId]);
 
   const handleNetwork = ({ id, name }) => {
+    console.log('id', id)
     changeNetwork(id);
   };
 
@@ -55,13 +58,16 @@ export default function BalanceOnTopRight({ style, topText, bottomText }) {
   };
 
   const switchNetwork = async (id) => {
+
     try {
+
       await library.provider.request({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: toHex(id) }]
       });
       setNetworkName(networks.find((x) => x.id === id).name);
     } catch (switchError) {
+      console.log(switchError);
       if (switchError.code === 4902) {
         try {
           await library.provider.request({
@@ -94,6 +100,9 @@ export default function BalanceOnTopRight({ style, topText, bottomText }) {
     <div className={classes.rightText} style={style}>
       {!active ?
         <>
+          {/* {chainId !== 1 ? <MyButton style={{ width: '100%' }} onClick={() => handleNetwork(networks.find((x) => x.network === 'ethereum'))}>Change network to ETH</MyButton> :
+            <MyButton style={{ width: '100%' }} onClick={onOpen}><span>Connect Wallet</span></MyButton>
+          } */}
           <MyButton style={{ width: '100%' }} onClick={onOpen}><span>Connect Wallet</span></MyButton>
         </>
 
@@ -106,6 +115,8 @@ export default function BalanceOnTopRight({ style, topText, bottomText }) {
           <MyButton style={{ width: '50%' }} onClick={disconnect}>Disconnect</MyButton>
 
         </>}
+
+
 
       <SelectWalletModal isOpen={isOpen} closeModal={onClose} />
     </div>

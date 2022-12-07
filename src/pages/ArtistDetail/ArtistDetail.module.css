@@ -1,158 +1,156 @@
 .row {
-    display: flex;
+	display: flex;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
+/* Начало изменений */
 .image {
-    margin-right: 65px;
+	margin-right: 65px;
+	max-width: 30%;
+	border-radius: 40px;
 }
+
+/* Конец изменениий */
 
 .title {
-    font-family: 'PP Monument Extended';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 43px;
-    line-height: 120%;
+	font-family: 'PP Monument Extended';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 43px;
+	line-height: 120%;
 
-    /* identical to box height, or 52px */
-    letter-spacing: -0.03em;
+	/* identical to box height, or 52px */
+	letter-spacing: -0.03em;
 
-    color: #FFFFFF;
-    margin-bottom: 34px;
+	color: #ffffff;
+	margin-bottom: 34px;
 }
 
 .subtitle {
-    font-family: 'PP Monument Extended';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 100%;
+	font-family: 'PP Monument Extended';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 100%;
 
-    color: #FFFFFF;
-    margin-bottom: 20px;
+	color: #ffffff;
+	margin-bottom: 20px;
 }
 
 .text {
-    font-family: 'PP Monument Extended';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 100%;
+	font-family: 'PP Monument Extended';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 100%;
 
-    color: #FFFFFF;
+	color: #ffffff;
 
-    opacity: 0.5;
-    flex: 1 1 auto;
+	opacity: 0.5;
+	flex: 1 1 auto;
 }
 
 .balance {
-    font-family: 'PP Supply Mono';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
+	font-family: 'PP Supply Mono';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
 
-    color: #FFFFFF;
+	color: #ffffff;
 
-    opacity: 0.5;
+	opacity: 0.5;
 }
 
 .number {
-    font-family: 'PP Supply Mono';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 120%;
+	font-family: 'PP Supply Mono';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 120%;
 
-    /* identical to box height, or 24px */
-    letter-spacing: -0.03em;
-    margin: 0 15px;
-    color: #FFFFFF;
-    margin-bottom: 33px;
+	/* identical to box height, or 24px */
+	letter-spacing: -0.03em;
+	margin: 0 15px;
+	color: #ffffff;
+	margin-bottom: 33px;
 }
 
 .label {
-    font-family: 'PP Supply Mono';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: -0.03em;
+	font-family: 'PP Supply Mono';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 19px;
+	letter-spacing: -0.03em;
 
-    color: #FFFFFF;
+	color: #ffffff;
 
-    opacity: 0.5;
-    margin-bottom: 27px;
+	opacity: 0.5;
+	margin-bottom: 27px;
 }
 
 .bigText {
-    font-family: 'PP Monument Extended';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 120%;
-    letter-spacing: -0.03em;
+	font-family: 'PP Monument Extended';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 120%;
+	letter-spacing: -0.03em;
 
-    color: #FFFFFF;
+	color: #ffffff;
 }
 
-
-
 @media screen and (max-width: 1220px) {
-    .row {
-        flex-direction: column;   
-        align-items: center;
-        width: 100%;
-    }
+	.row {
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
 
-    
+	.image {
+		margin-right: 0;
+		margin-bottom: 50px;
+		max-width: 100%;
+	}
 
-    .image {
-        margin-right: 0;
-        margin-bottom: 50px;
+	.title {
+		text-align: center;
+	}
 
-    }
+	.subtitle {
+		text-align: center;
+	}
 
-    .title {
-        text-align: center;
-    }
+	.bigText {
+		text-align: center;
+	}
 
-    .subtitle {
-        text-align: center;
-    }
+	.text {
+		text-align: center;
+		margin-bottom: 40px;
+	}
 
-    .bigText {
-        text-align: center;
-    }
+	.column {
+		align-items: center;
+		margin-bottom: 30px;
+		width: 100%;
+	}
 
-    .text {
-         text-align: center;
-         margin-bottom: 40px;
-    }
+	.column:last-child {
+		margin: 0 !important;
+		align-items: center;
+		width: 100%;
+	}
+	.column:last-child button {
+		width: 100%;
+	}
 
-    .column {
-        align-items: center;
-        margin-bottom: 30px;
-        width: 100%;
-    }
-
-    .column:last-child {
-        margin: 0 !important;
-        align-items: center;
-        width: 100%;
-    }
-    .column:last-child button {
-        width: 100%;
-    }
-
-    
-    .row input {
-        min-width: 100%;
-    }
-
-
+	.row input {
+		min-width: 100%;
+	}
 }

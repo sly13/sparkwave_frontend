@@ -27,9 +27,10 @@ function Admin() {
 	}
 
 	const handleDeleteArtist = async ({ id }) => {
+		// Call for Delete Artist
 		const response = await removeArtist({ id });
 		if (response.success) {
-			getArtistsList()
+			getArtistsList();
 		}
 	}
 

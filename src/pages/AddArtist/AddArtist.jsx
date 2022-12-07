@@ -28,6 +28,7 @@ function AddArtist() {
 		address: '',
 		soundxyz: '',
 		avatar: '',
+		description: '',
 	};
 
 	const [formValues, setFormValues] = useState(initialValues);
@@ -45,7 +46,7 @@ function AddArtist() {
 	}, []);
 
 	const handleSubmit = async () => {
-		const { soundcloud, username, email, twitter, address, soundxyz, avatar } = formData.values;
+		const { soundcloud, username, email, twitter, address, soundxyz, avatar, description } = formData.values;
 		const actionMethod = !isAddMode ? updateArtist : addArtist;
 		console.log('avatar', avatar);
 		console.log('initialValues', initialValues);
@@ -57,9 +58,16 @@ function AddArtist() {
 		data.append('twitter', twitter);
 		data.append('address', address);
 		data.append('soundxyz', soundxyz);
+		data.append('description', description);
 		data.append('avatar', Array.isArray(avatar) ? avatar[0] : oldAvatar);
 
 		try {
+			if (isAddMode) {
+				// Call for Add Artist
+			} else {
+				// Call for Updated Artist
+			}
+
 			const response = await actionMethod({ data, id });
 			console.log('response', response);
 
@@ -69,17 +77,7 @@ function AddArtist() {
 			}
 		} catch (e) {
 			console.log('error', e);
-			// setError: (e) => {
-			// 	setError(e);
-			// 	formData.actions.setSubmitting(false);
-			// 	// console.log('e.response', e.response.data.error_message);
-			// 	if (e.response.status === 400) {
-			// 		formData.actions.setFieldError('address', 'Wallet already exists');
-			// 	}
-			// }
 		}
-
-
 	};
 
 	useEffect(() => {
@@ -124,6 +122,21 @@ function AddArtist() {
 											/>
 											<div className={classes.error}>
 												<ErrorMessage name="username" />
+											</div>
+										</div>
+
+										<div className={classes.formBlock}>
+											<label htmlFor="" className={classes.label} >Description</label>
+											<FormInput
+												id="description"
+												name="description"
+												placeholder="Description"
+												onChange={handleChange}
+												onBlur={handleBlur}
+												value={values.description}
+											/>
+											<div className={classes.error}>
+												<ErrorMessage name="description" />
 											</div>
 										</div>
 

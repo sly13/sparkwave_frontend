@@ -13,6 +13,7 @@ import MakeDrop from './pages/MakeDrop/MakeDrop';
 import Login from './pages/Login/Login';
 import Admin from './pages/Admin/Admin.jsx';
 import AddArtist from './pages/AddArtist/AddArtist';
+import AdminBalancePage from './pages/AdminBalance/Admin';
 
 
 function App() {
@@ -27,11 +28,16 @@ function App() {
         <Route path={'/profile'}>
           <Route path=":id" element={<AccountInfo />} />
         </Route>
-        <Route path='/artist-detail' element={<ArtistDetail />} />
+        {/* <Route path='/artist-detail' element={<ArtistDetail />} /> */}
+        <Route path={'/artist-detail'}>
+          <Route path=":id" element={<ArtistDetail />} />
+        </Route>
         {/* <Route path='/info' element={<AccountInfo />} /> */}
         <Route path='/make-drop' element={<MakeDrop />} />
         <Route path='/auth/login' element={<Login />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/admin-balance' element={<AdminBalancePage />} />
+
         <Route path='/create-artist' element={<AddArtist />} />
         <Route path={'/artist'}>
           <Route path=":id" element={<AddArtist />} />

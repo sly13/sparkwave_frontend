@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from "./MainContent.module.css"
 import '../../styles/general.css'
 import SearchRow from '../../components/SearchRow/SearchRow'
@@ -26,14 +26,31 @@ import Dudi from '../../img/Group 16.png'
 import IlluminationDrops from '../../img/Rectangle 25.png'
 import MiddleModeDrops from '../../img/Rectangle 25(1).png'
 import AfekDrops from '../../img/Rectangle 25(2).png'
-import MyButton from '../../components/UI/button/MyButton'
-
-
 
 export default function MainContent() {
-  const [query, setQuery] = useState('');
+  const [, setQuery] = useState('');
+  const [supportedArtists, setSupportedArtists] = useState('');
 
-
+  useEffect(() => {
+    // Call for get Supported artists list
+    setSupportedArtists([
+      {
+        header: 'Illumination',
+        text: '33%',
+        image: Illumination
+      },
+      {
+        header: 'Middle Mode',
+        text: '33%',
+        image: MiddleMode
+      },
+      {
+        header: 'Afek',
+        text: '33%',
+        image: Afek
+      }
+    ]);
+  }, []);
 
   return (
     <div className={'body'}>
@@ -47,9 +64,9 @@ export default function MainContent() {
         <MyLabel style={{ marginBottom: 11 + 'px' }}>Supported artist’s</MyLabel>
         <Line></Line>
         <div className={classes.row} style={{ marginBottom: 31 + 'px', justifyContent: 'flex-start' }}>
-          <ArtistCard header="Illumination" text="33%" image={Illumination} ></ArtistCard>
-          <ArtistCard header="Middle Mode" text="33%" image={MiddleMode} ></ArtistCard>
-          <ArtistCard header="Afek" text="33%" image={Afek} ></ArtistCard>
+          {supportedArtists && supportedArtists.map((item, index) => {
+            return <ArtistCard header={item.header} text={item.text} image={item.image} ></ArtistCard>
+          })}
         </div>
         <MyLabel style={{ marginBottom: 11 + 'px' }}>Your badges</MyLabel>
         <Line></Line>
